@@ -15,7 +15,7 @@ public class ShiftOperators {
 		ShiftOperators so = new ShiftOperators();
 		
 		//so.doTest1();
-		//so.doTest2();
+		so.doTest2();
 	}	
 
 	private void doTest3(){

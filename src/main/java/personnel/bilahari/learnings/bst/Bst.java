@@ -1,15 +1,26 @@
 package personnel.bilahari.learnings.bst;
 
+import personnel.bilahari.common.utils.NumberUtils;
+
 public class Bst {
 
 	private Node root;
 
 	public Bst() {
 	}
+
 	public Bst(Node root) {
 		this.root = root;
 	}
 
+	public int getHeight(){
+		if(root == null){
+			return 0;
+		}else{
+			return 1 + NumberUtils.max(new Bst(root.getLeft()).getHeight(), new Bst(root.getRight()).getHeight());
+		}
+	}
+	
 	public void insert(int data){
 		Node newNode = new Node(data);
 		if(root == null){
@@ -52,20 +63,20 @@ public class Bst {
 	}
 
 	public String getPreorderTraversal(){
-		String inorderTraversalStr = null;
+		String preOrderTraversalStr = null;
 		Node tempNode =root;
 		if(tempNode != null){
 			String leftSubtreeTraversal = new Bst(tempNode.getLeft()).getPreorderTraversal(); 
 			String rightSubtreeTraversal = new Bst(tempNode.getRight()).getPreorderTraversal();
-			inorderTraversalStr = tempNode.getData()+"";
+			preOrderTraversalStr = tempNode.getData()+"";
 			if(leftSubtreeTraversal != null && rightSubtreeTraversal != null){
-				inorderTraversalStr += ","+leftSubtreeTraversal+","+rightSubtreeTraversal;
+				preOrderTraversalStr += ","+leftSubtreeTraversal+","+rightSubtreeTraversal;
 			}else if(rightSubtreeTraversal != null){
-				inorderTraversalStr += ","+rightSubtreeTraversal;
+				preOrderTraversalStr += ","+rightSubtreeTraversal;
 			}else if(leftSubtreeTraversal != null){
-				inorderTraversalStr += ","+leftSubtreeTraversal;
+				preOrderTraversalStr += ","+leftSubtreeTraversal;
 			}
 		}
-		return inorderTraversalStr;
+		return preOrderTraversalStr;
 	}
 }

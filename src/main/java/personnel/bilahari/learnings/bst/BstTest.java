@@ -18,5 +18,7 @@ public class BstTest {
 		System.out.println(bst.search(7));
 		
 		System.out.println(bst.getPreorderTraversal());
+		
+		System.out.println("Height : "+bst.getHeight());
 	}
 }

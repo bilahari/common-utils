@@ -21,6 +21,8 @@ public class Test {
 			System.out.println("(str == null)");
 		}
 		
+		System.out.println(str.toString());
+		
 		if(str.equalsIgnoreCase(null)){
 			System.out.println((str.equals(null)));
 		}
